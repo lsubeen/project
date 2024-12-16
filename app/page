@@ -1,0 +1,86 @@
+[강아지 영양제 디스펜서 애플리케이션 구조]
+
++----------------------------------+
+|             index.html           |
++----------------------------------+
+                |
+                v
++----------------------------------+
+|            script.js             |
++----------------------------------+
+    |               |
+    |               v
+    |        +--------------+
+    |        |  Auth Pages  |
+    |        +--------------+
+    |        | - Login      |
+    |        | - Register   |
+    |        | - Forgot     |
+    |        +--------------+
+    |
+    v
++----------------------------------+
+|           Main Pages             |
++----------------------------------+
+| - Home                           |
+| - Dispenser                      |
+| - Dogs Info                      |
+| - Auto Schedule                  |
+| - My Page                        |
++----------------------------------+
+                |
+                v
++----------------------------------+
+|            styles.css            |
++----------------------------------+
+
+[컴포넌트 상세]
+
+1. Auth Pages:
+   - Login Form
+   - Register Form
+   - Forgot Password Form
+
+2. Home:
+   - Dispenser Status
+   - Representative Dog Info
+
+3. Dispenser:
+   - Battery Level
+   - Connection Status
+   - Dispense Button
+
+4. Dogs Info:
+   - Dog Info Form
+   - Dogs List
+
+5. Auto Schedule:
+   - Schedule Form
+   - Current Settings
+   - Next Dispense Time
+
+6. My Page:
+   - User Info
+   - Delete Account
+   - Terms of Service
+
+[데이터 흐름]
+
+User Input -> Event Handlers -> 
+Page Rendering -> DOM Updates
+
+[주요 함수]
+
+- renderAuthPage()
+- renderPage()
+- handleLogin()
+- handleRegister()
+- handleForgot()
+- initHome()
+- initDispenser()
+- initDogsList()
+- initSchedule()
+- initMyPage()
+- showModal()
+- closeModal()
+

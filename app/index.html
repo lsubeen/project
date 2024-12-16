@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강아지 영양제 디스펜서 앱 - 환영합니다 </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="landing-page" class="active">
+        <div class="container">
+            <h1>강아지 영양제 디스펜서 앱</h1>
+            <div class="auth-container">
+                <div class="auth-option" id="login-option">
+                    <h2>로그인</h2>
+                    <form id="login-form">
+                        <input type="text" placeholder="아이디" required>
+                        <input type="password" placeholder="비밀번호" required>
+                        <button type="submit">로그인</button>
+                    </form>
+                </div>
+                <div class="auth-option" id="register-option">
+                    <h2>회원가입</h2>
+                    <form id="register-form">
+                        <input type="text" placeholder="아이디" required>
+                        <input type="password" placeholder="비밀번호" required>
+                        <input type="password" placeholder="비밀번호 확인" required>
+                        <input type="email" placeholder="이메일" required>
+                        <button type="submit">회원가입</button>
+                    </form>
+                </div>
+                <div class="auth-option" id="forgot-option">
+                    <h2>아이디/비밀번호 찾기</h2>
+                    <form id="forgot-form">
+                        <input type="email" placeholder="가입 시 등록한 이메일" required>
+                        <button type="submit">찾기</button>
+                    </form>
+                </div>
+            </div>
+            <div class="auth-links">
+                <a href="#" id="show-login">로그인</a> |
+                <a href="#" id="show-register">회원가입</a> |
+                <a href="#" id="show-forgot">아이디/비밀번호 찾기</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-app" class="hidden">
+      <div id="app">
+        <main>
+            <section id="home" class="active">
+              <header class="top-bar">
+                <h2>🏠</h2>
+                <div class="top-bar">
+                    <button id="notification-btn">🔔</button>
+                </div>
+              </header>
+              <div class="dispenser-status">
+                <img src="dispenser.png" alt="디스펜서 이미지" class="dispenser-image">
+                <div class="status-info">
+                    <div class="status-card">
+                        <h3>연결 상태</h3>
+                        <p id="connection-status">연결됨</p>
+                    </div>
+                    <div class="status-card">
+                        <h3>자동 급여 시간</h3>
+                        <p id="auto-feed-time">08:00, 18:00</p>
+                    </div>
+                </div>
+            </div>
+                <div class="daily-tips">
+                    <h3>놓치기 아까운 오늘의 정보❗️</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card" data-tip-id="1">
+                            <img src="tip1.jpg" alt="Tip 1">
+                            <p>강아지 영양 관리의 기본</p>
+                        </div>
+                        <div class="tip-card" data-tip-id="2">
+                            <img src="tip2.jpg" alt="Tip 2">
+                            <p>강아지 운동의 중요성</p>
+                        </div>
+                        <div class="tip-card" data-tip-id="3">
+                            <img src="tip3.jpg" alt="Tip 3">
+                            <p>강아지 치아 관리 방법</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="dispenser">
+                <h2>디스펜서 관리</h2>
+                <div class="dispenser-menu">
+                    <button class="dispenser-tab active" data-target="dispenser-info">디스펜서 정보</button>
+                    <button class="dispenser-tab" data-target="dispensed-supplements">배출된 영양제</button>
+                </div>
+
+                <div id="dispenser-info" class="dispenser-content active">
+                    <div class="dispenser-info">
+                        <p>배터리 잔량: <span id="battery-level">75%</span></p>
+                        <p>연결 상태: <span id="dispenser-status-display">연결됨</span></p>
+                    </div>
+                </div>
+
+                <div id="dispensed-supplements" class="dispenser-content">
+                    <h3>배출된 영양제</h3>
+                    <ul id="dispensed-supplements-list">
+                        <li>멀티비타민 - 09:00</li>
+                        <li>오메가3 - 18:30</li>
+                    </ul>
+                    <button id="edit-dispenser">수정하기</button>
+                </div>
+            </section>
+
+            <section id="dog-info">
+                <h2>강아지 정보</h2>
+                <form id="dog-form">
+                    <input type="text" id="dog-name" placeholder="이름" required>
+                    <input type="number" id="dog-age" placeholder="나이" required>
+                    <input type="text" id="dog-breed" placeholder="품종" required>
+                    <input type="number" id="dog-weight" placeholder="체중 (kg)" required>
+                    <textarea id="dog-health" placeholder="질병사항"></textarea>
+                    <input type="file" id="dog-image" accept="image/*">
+                    <button type="submit">저장</button>
+                </form>
+                <div id="dog-profiles">
+                    <h3>등록된 강아지 목록</h3>
+                    <ul id="dog-list">
+                      <li data-dog-id="1">
+                        <img src="golden_retriever.png" alt="멍멍이" class="dog-profile-image">
+                        <div class="dog-info">
+                            <span class="dog-name">멍멍이</span>
+                            <span class="dog-details">3세, 골든리트리버</span>
+                            <span class="dog-weight">30kg</span>
+                            <span class="dog-health">건강함</span>
+                        </div>
+                        <button class="detail-btn">상세보기</button>
+                    </li>
+
+                    <li data-dog-id="2">
+                        <img src="bichon_frise.png" alt="뭉치" class="dog-profile-image">
+                        <div class="dog-info">
+                            <span class="dog-name">뭉치</span>
+                            <span class="dog-details">5세, 비숑프리제</span>
+                            <span class="dog-weight">7kg</span>
+                            <span class="dog-health">알러지 있음</span>
+                        </div>
+                        <button class="detail-btn">상세보기</button>
+                    </li>
+
+                    <li data-dog-id="3">
+                        <img src="poodle.png" alt="초코" class="dog-profile-image">
+                        <div class="dog-info">
+                            <span class="dog-name">초코</span>
+                            <span class="dog-details">2세, 푸들</span>
+                            <span class="dog-weight">5kg</span>
+                            <span class="dog-health">치아 문제 있음</span>
+                        </div>
+                        <button class="detail-btn">상세보기</button>
+                    </li>
+                    
+                    </ul>
+                </div>
+            </section>
+
+            <div id="dog-detail-modal" class="modal">
+              <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <h2 id="modal-dog-name"></h2>
+                  <img id="modal-dog-image" src="" alt="강아지 이미지">
+                  <p id="modal-dog-info"></p>
+                  <h3>건강 상태</h3>
+                  <p id="modal-dog-health"></p>
+              </div>
+          </div>
+
+          <section id="auto-feed">
+            <h2>자동 급여 설정</h2>
+            <form id="auto-feed-form">
+                <input type="time" id="feed-time" required>
+                <input type="text" id="supplement-name" placeholder="영양제 이름" required>
+                <input type="number" id="supplement-count" placeholder="약 개수" required>
+                <button type="submit">설정 저장</button>
+            </form>
+            <div id="current-settings">
+                <h3>현재 설정사항</h3>
+                <ul id="feed-settings-list">
+                    <li>08:00 - 멀티비타민 2개</li>
+                    <li>18:00 - 오메가3 1개</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="supplement-record">
+          <h2>영양제 기록</h2>
+          <form id="supplement-form">
+              <input type="date" id="record-date" required>
+              <input type="text" id="supplement-name" placeholder="영양제 이름" required>
+              <input type="number" id="supplement-count" placeholder="개수" required>
+              <textarea id="dog-condition" placeholder="오늘 강아지 상태"></textarea>
+              <button type="submit">기록하기</button>
+          </form>
+          <div id="supplement-history">
+              <h3>기록 내역</h3>
+              <ul id="history-list">
+                        <li>2024-12-14 - 멀티비타민 2개, 상태: 활발함</li>
+                        <li>2024-12-13 - 오메가3 1개, 상태: 평소와 같음</li>
+                      </ul>
+                    </div>
+                </section>
+
+            <section id="mypage">
+                <h2>마이페이지</h2>
+                <div class="mypage-menu">
+                    <button class="mypage-tab active" data-target="user-info">회원정보</button>
+                    <button class="mypage-tab" data-target="delete-account">회원탈퇴</button>
+                    <button class="mypage-tab" data-target="terms">이용약관</button>
+                </div>
+                
+                <div id="user-info" class="mypage-content active">
+                    <h3>회원정보</h3>
+                    <form id="user-info-form">
+                        <label for="username">아이디</label>
+                        <input type="text" id="username" value="dogowner123" readonly>
+                        
+                        <label for="email">이메일</label>
+                        <input type="email" id="email" value="dogowner123@example.com">
+                        
+                        <label for="phone">전화번호</label>
+                        <input type="tel" id="phone" value="010-1234-5678">
+                        
+                        <button type="submit">정보 수정</button>
+                    </form>
+                </div>
+                
+                <div id="delete-account" class="mypage-content">
+                    <h3>회원탈퇴</h3>
+                    <p>회원탈퇴 시 모든 데이터가 삭제되며 복구할 수 없습니다.</p>
+                    <form id="delete-account-form">
+                        <label for="delete-reason">탈퇴 사유</label>
+                        <select id="delete-reason">
+                            <option value="">선택해주세요</option>
+                            <option value="1">서비스 불만족</option>
+                            <option value="2">사용 빈도 낮음</option>
+                            <option value="3">개인정보 보호</option>
+                            <option value="4">기타</option>
+                        </select>
+                        
+                        <label for="delete-password">비밀번호 확인</label>
+                        <input type="password" id="delete-password" required>
+                        
+                        <button type="submit">회원탈퇴</button>
+                    </form>
+                </div>
+                
+                <div id="terms" class="mypage-content">
+                    <h3>이용약관</h3>
+                    <div class="terms-content">
+                        <h4>제1조 (목적)</h4>
+                        <p>이 약관은 강아지 영양제 디스펜서 앱 서비스(이하 "서비스")의 이용조건 및 절차, 회사와 회원 간의 권리, 의무 및 책임사항 등을 규정함을 목적으로 합니다.</p>
+                        
+                        <h4>제2조 (용어의 정의)</h4>
+                        <p>1. "회원"이란 서비스에 접속하여 이 약관에 따라 회사와 이용계약을 체결하고 회사가 제공하는 서비스를 이용하는 고객을 말합니다.</p>
+                        <p>2. "아이디(ID)"란 회원의 식별과 서비스 이용을 위하여 회원이 정하고 회사가 승인하는 문자와 숫자의 조합을 말합니다.</p>
+                        
+                      
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <nav>
+            <ul>
+                <li><a href="#home" class="active">홈</a></li>
+                <li><a href="#dispenser">디스펜서</a></li>
+                <li><a href="#dog-info">강아지 정보</a></li>
+                <li><a href="#auto-feed">자동 급여</a></li>
+                <li><a href="#supplement-record">영양제 기록</a></li>
+                <li><a href="#mypage">마이페이지</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="tip-popup" class="popup">
+        <div class="popup-content">
+            <h3 id="popup-title"></h3>
+            <p id="popup-text"></p>
+            <button id="close-popup">닫기</button>
+        </div>
+    </div>
+
+    </div>
+  
+   
+
+
+    <script src="script.js"></script>
+</body>
+</html>
